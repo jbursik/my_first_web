@@ -1,0 +1,478 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  height: 100vh;
+
+  background-color: #000;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)),
+    url(/img/kuchyn.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.logo_first {
+  margin-top: 15px;
+}
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+a:hover {
+  color: orange;
+}
+
+/* HEADER */
+
+header {
+  position: relative;
+  padding: 0 2rem;
+}
+
+.navbar {
+  width: 100%;
+  height: 65px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .toggle_btn {
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.action_btn {
+  background-color: orange;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: scale 0.2 ease;
+}
+
+.action_btn:hover {
+  scale: 1.05;
+  color: #fff;
+}
+
+.action_btn:active {
+  scale: 0.95;
+}
+
+/* DROPDOWN MENU */
+.dropdown_menu {
+  z-index: 200;
+  display: none;
+  position: absolute;
+  right: 2rem;
+  top: 60px;
+  height: 0;
+  width: 300px;
+  background: #808080;
+
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open {
+  height: 240px;
+}
+
+.dropdown_menu li {
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 400;
+}
+
+.dropdown_menu .action_btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+
+/* OBSAH */
+section#hero {
+  height: calc(100vh - 60px);
+  margin-top: 100px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+#hero p {
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .navbar .links,
+  .navbar .action_btn {
+    display: none;
+  }
+
+  .navbar .toggle_btn {
+    display: block;
+  }
+
+  .dropdown_menu {
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .dropdown_menu {
+    left: 2rem;
+    width: unset;
+  }
+}
+
+/* KONTAKT */
+main h2 {
+  color: #fff;
+  text-align: center;
+  margin-top: 20%;
+  font-size: 30px;
+}
+
+main p {
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+/* kontakt - formulář */
+
+.box h1 {
+  color: #fff;
+  font-weight: bold;
+}
+
+.box {
+  width: 350px;
+  padding: 40px;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #191919;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.box input[type="text"],
+.box input[type="email"],
+textarea {
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #214252;
+  padding: 15px 10px;
+  width: 200px;
+  color: #bbb;
+  border-radius: 24px;
+  outline: none;
+}
+
+.box input[type="text"]:focus,
+.box input[type="email"]:focus,
+textarea:focus {
+  transition: 0.25s;
+  width: 280px;
+  border-color: orange;
+}
+
+.box input[type="submit"] {
+  background: orange;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border: 2px solid #214252;
+  padding: 14px 40px;
+  width: 200px;
+  outline: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+.box input[type="submit"]:hover {
+  background: greenyellow;
+}
+
+@media (max-width: 352px) {
+  .box {
+    width: auto;
+  }
+}
+
+.contact p {
+  letter-spacing: 3px;
+}
+
+.contact h3 {
+  padding-bottom: 0px;
+  letter-spacing: 4px;
+}
+.contact {
+  width: 100%;
+  padding: 40px;
+  border: 2px solid #191919;
+  color: #fff;
+  text-align: center;
+}
+
+.logoFbIgfb {
+  position: absolute;
+  left: 90%;
+}
+
+.logoFbIgig {
+  position: absolute;
+  left: 86%;
+}
+
+@media (max-width: 837px) {
+  .logoFbIgig {
+    position: absolute;
+    left: 90%;
+    top: 110px;
+  }
+}
+
+.pravitkoimg {
+  width: 60px;
+}
+
+.naradiimg {
+  width: 60px;
+}
+
+.kalkulaceimg {
+  width: 60px;
+}
+
+.flexboxsluzby {
+  display: flex;
+}
+
+.box1 {
+  margin: 20px 10px;
+  margin-top: 70px;
+  padding: 10px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1) 252;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+h4 {
+  margin: 20px 20px;
+  font-size: 30px;
+}
+
+@media (max-width: 810px) {
+  .flexboxsluzby {
+    flex-direction: column;
+  }
+}
+
+.contact1 {
+  width: 100%;
+  padding: 0px;
+
+  color: #fff;
+  text-align: center;
+}
+
+/* O nás */
+.onas {
+  width: 100%;
+  margin: 20px 10px;
+  margin-top: 70px;
+  padding: 10px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1) 252;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.onas h1 {
+  font-size: 50px;
+  letter-spacing: 3px;
+  padding: 50px;
+}
+
+.onas p {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 800px) {
+  .onas {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/* sliders */
+.galleryh5 {
+  color: #ffff;
+  text-align: center;
+  margin-top: 33%;
+  padding: 40px;
+  font-weight: bold;
+  font-size: 15px;
+}
+.img-slider h1 {
+  padding: 20px;
+}
+
+.img-slider {
+  position: relative;
+  width: 100%;
+
+  height: 500px;
+  margin: 0 auto;
+}
+
+.img-slider .slide {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  clip-path: circle(0% at 0 50%);
+}
+
+.img-slider .slide.active {
+  clip-path: circle(150% at 0 50%);
+  transition: 2s;
+  transition-property: clip-path;
+}
+
+.img-slider .slide img {
+  z-index: 1;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.img-slider .navigation {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  bottom: -400px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.img-slider .navigation .btn {
+  background: rgba(255, 255, 255, 0.5);
+  width: 12px;
+  height: 12px;
+  margin: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.img-slider .navigation .btn.active {
+  background: #2696e9;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+/* zkouška */
+
+@media (max-width: 820px) {
+  .img-slider {
+    width: 100%;
+    height: 375px;
+  }
+
+  .img-slider .navigation {
+    bottom: -40px;
+  }
+
+  .img-slider .navigation .btn {
+    width: 10px;
+    height: 10px;
+    margin: 8px;
+  }
+}
+
+@media (max-width: 620px) {
+  .img-slider {
+    width: 100%;
+    height: 250px;
+  }
+
+  .img-slider .navigation {
+    bottom: -55px;
+  }
+
+  .img-slider .navigation .btn {
+    width: 8px;
+    height: 8px;
+    margin: 6px;
+  }
+}
+
+@media (max-width: 569px) {
+  .img-slider {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .img-slider {
+    width: 100%;
+    height: 200px;
+  }
+
+  .img-slider .navigation {
+    bottom: -130px;
+  }
+}
+
+/* footer */
+.flexbox_end {
+  margin-top: 800px;
+}

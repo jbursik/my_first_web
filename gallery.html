@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Nábytek Šedivý</title>
+  </head>
+  <body>
+    <header>
+      
+      <div class="navbar">
+        <div class="logo">
+          <img src="/img/logo-david.png" class="logo_first" alt="" />
+        </div>
+        <ul class="links">
+          <li><a href="/index.html">Domů</a></li>
+          <li><a href="/onas.html">O nás</a></li>
+          <li><a href="/gallery.html">Galerie</a></li>
+        </ul>
+        <a href="contact.html" class="action_btn">Kontakt</a>
+        <div class="toggle_btn"><i class="fa-solid fa-bars"></i></div>
+      </div>
+
+      <div class="dropdown_menu">
+        <li><a href="/index.html">Domů</a></li>
+        <li><a href="/onas.html">O nás</a></li>
+        <li><a href="/gallery.html">Galerie</a></li>
+
+        <li><a href="/contact.html" class="action_btn">Kontakt</a></li>
+      </div>
+      
+      <div class="contact1">
+        <div class="flexbox">
+          <div class="logoFbIgig">
+            <a href="https://www.instagram.com/nabytek_sedivy/"
+              ><i
+                class="fa-brands fa-instagram fa-2xl"
+                style="color: #fc1c03"
+              ></i
+            ></a>
+          </div>
+
+          <div class="logoFbIgfb">
+            <a href="https://www.facebook.com/nabyteksedivy"
+              ><i
+                class="fa-brands fa-facebook fa-2xl"
+                style="color: #0f63f5"
+              ></i
+            ></a>
+          </div>
+        </div>
+
+       
+
+       <div class="img-slider">
+        <h1>Malá ukázka naší práce</h1>
+        <div class="slide active">
+            <img src="/img/kuchyn1.jpg" alt="">
+        </div>
+        
+        
+        <div class="slide">
+            <img src="/img/kuchyn4.jpg" alt="">
+        </div>
+        
+        
+        <div class="slide">
+            <img src="/img/koupelna.jpg" alt="">
+        </div>
+        <div class="slide">
+            <img src="/img/stul.jpg" alt="">
+        </div>
+        <div class="slide">
+            <img src="/img/stul2.jpg" alt="">
+        </div>
+        
+        
+        <div class="slide">
+            <img src="/img/vestavenapostel.jpg" alt="">
+            </div>
+
+            <div class="navigation">
+                <div class="btn active"></div>
+                
+                
+                <div class="btn"></div>
+                <div class="btn"></div>
+                <div class="btn"></div>
+                <div class="btn"></div>
+                
+            </div>
+            
+        </div>
+
+        
+    
+    </header>
+    <h5 class="galleryh5">Pro více fotografií sleduj naše sociální sítě</h5>
+    
+
+    <script>
+      const toggleBtn = document.querySelector(".toggle_btn");
+      const toggleBtnIcon = document.querySelector(".toggle_btn i");
+      const dropDownMenu = document.querySelector(".dropdown_menu");
+
+      toggleBtn.onclick = function () {
+        dropDownMenu.classList.toggle("open");
+        const isOpen = dropDownMenu.classList.contains("open");
+
+        toggleBtnIcon.classList = isOpen
+          ? "fa-solid fa-xmark"
+          : "fa-solid fa-bars";
+      };
+
+
+      let slides = document.querySelectorAll(".slide")
+        let btns = document.querySelectorAll(".btn")
+        let currentSlide = 1
+
+        // Javascript for image slider manual navigation
+        let manualNav = function(manual){
+            slides.forEach((slide) => {
+               slide.classList.remove('active');
+
+               btns.forEach((btn) => {
+                btn.classList.remove('active');
+               })
+            })
+
+
+            slides[manual].classList.add('active')
+            btns[manual].classList.add('active')
+        }
+
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+              manualNav(i);  
+              currentSlide = i;
+            })
+        });
+
+        // Javascript for image slider autoplay navigation 
+        let repeat = function(activeClass){
+            let active = document.getElementsByClassName('active')
+            let i = 1;
+
+            let repeater = () => {
+                setTimeout(function() {
+                    
+                        [...active].forEach((activeSlide) => {
+                           activeSlide.classList.remove('active'); 
+                        });
+                    
+
+
+                    slides[i].classList.add('active')
+                    btns[i].classList.add('active')
+                    i++;
+
+                    if(slides.length == i){
+                        i = 0;
+                    }
+                    if(i >= slides.length){
+                        return;
+                    }
+                    repeater();
+                }, 2500);
+                
+            }
+            repeater();
+        }
+        repeat();
+    </script>
+  </body>
+</html>

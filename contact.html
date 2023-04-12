@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Nábytek Šedivý</title>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <img src="/img/logo-david.png" class="logo_first" alt="" />
+        </div>
+        <ul class="links">
+          <li><a href="/index.html">Domů</a></li>
+          <li><a href="/onas.html">O nás</a></li>
+          <li><a href="/gallery.html">Galerie</a></li>
+        </ul>
+        <a href="contact.html" class="action_btn">Kontakt</a>
+        <div class="toggle_btn"><i class="fa-solid fa-bars"></i></div>
+      </div>
+
+      <div class="dropdown_menu">
+        <li><a href="/index.html">Domů</a></li>
+        <li><a href="/onas.html">O nás</a></li>
+        <li><a href="/gallery.html">Galerie</a></li>
+
+        <li><a href="/contact.html" class="action_btn">Kontakt</a></li>
+      </div>
+    </header>
+    <main>
+      <form action="mailer.php" method="post" class="box">
+        <h1>Napište nám</h1>
+        <input type="text" name="name" placeholder="Vaše celé jméno" />
+        <input type="email" name="email" placeholder="Email" />
+        <textarea name="message" id="" cols="30" rows="10"></textarea>
+        <input type="submit" value="Odeslat" />
+      </form>
+
+      <div class="contact">
+        <div class="flexbox">
+          <div class="logoFbIgig">
+            <a href="https://www.instagram.com/nabytek_sedivy/"
+              ><i
+                class="fa-brands fa-instagram fa-2xl"
+                style="color: #fc1c03"
+              ></i
+            ></a>
+          </div>
+
+          <div class="logoFbIgfb">
+            <a href="https://www.facebook.com/nabyteksedivy"
+              ><i
+                class="fa-brands fa-facebook fa-2xl"
+                style="color: #0f63f5"
+              ></i
+            ></a>
+          </div>
+        </div>
+        <h3>Kontakt</h3>
+        <p>
+          Štefáčkova 13,<br />
+          628 00, Brno <br />
+
+          nabytek.sedivy@gmail.com<br />
+
+          Tel: 608 530 700
+        </p>
+      </div>
+    </main>
+    <footer>
+      <div class="flexbox_end">
+        <div class="partone">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2606.738031573989!2d16.668790616125076!3d49.2055289793229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471295d6c07517ff%3A0x9f216d4841083d02!2zTsOhYnl0ZWsgxaBlZGl2w70!5e0!3m2!1scs!2scz!4v1681046566069!5m2!1scs!2scz"
+            width="100%"
+            height="200"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      @media (max-width: 837px) {
+        .logoFbIgig {
+          position: absolute;
+          left: 90%;
+          top: 110px;
+          display: none;
+        }
+      }
+    </style>
+    <script>
+      const toggleBtn = document.querySelector(".toggle_btn");
+      const toggleBtnIcon = document.querySelector(".toggle_btn i");
+      const dropDownMenu = document.querySelector(".dropdown_menu");
+
+      toggleBtn.onclick = function () {
+        dropDownMenu.classList.toggle("open");
+        const isOpen = dropDownMenu.classList.contains("open");
+
+        toggleBtnIcon.classList = isOpen
+          ? "fa-solid fa-xmark"
+          : "fa-solid fa-bars";
+      };
+    </script>
+  </body>
+</html>
